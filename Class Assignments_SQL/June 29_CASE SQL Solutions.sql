@@ -91,5 +91,21 @@ SELECT
 FROM public.airline_on_time_west_coast
 WHERE flight_date BETWEEN '2014-12-01' AND '2014-12-31' 
 GROUP BY 1,2,3
-LIMIT 1000
+LIMIT 1000;
+
+SELECT *
+From da_ingredients.ingredients
+LIMIT 100;
+
+SELECT 
+	manufacturer,
+	categories,
+	features_value
+	CASE
+		WHEN features_value LIKE('%Coffee%') THEN true
+		WHEN features_values LIKE ('%Tea%') THEN true
+		WHEN features_values LIKE ('%Cocoa%') THEN true 
+		Else false
+		End as hot_beverages
+FROM da_ingredients.ingredients
 
