@@ -98,14 +98,28 @@ From da_ingredients.ingredients
 LIMIT 100;
 
 SELECT 
-	manufacturer,
-	categories,
-	features_value
+	manufacturer, 
+	categories, 
+	features_value,
 	CASE
-		WHEN features_value LIKE('%Coffee%') THEN true
-		WHEN features_values LIKE ('%Tea%') THEN true
-		WHEN features_values LIKE ('%Cocoa%') THEN true 
-		Else false
-		End as hot_beverages
+		WHEN categories LIKE ('%Coffee%') THEN 'TRUE'
+		WHEN categories LIKE ('%Tea%') THEN 'TRUE'
+		WHEN categories LIKE ('%Cocoa%') THEN 'TRUE'
+		Else 'FALSE' End AS hot_beverages
 FROM da_ingredients.ingredients
+LIMIT 1000;
 
+SELECT 
+	manufacturer, 
+	categories, 
+	features_value,
+	CASE
+		WHEN categories LIKE ('%Coffee%') THEN 'TRUE'
+		WHEN categories LIKE ('%Tea%') THEN 'TRUE'
+		WHEN categories LIKE ('%Cocoa%') THEN 'TRUE'
+		Else 'FALSE' End AS hot_beverages,
+	CASE
+		WHEN categories LIKE ('%Gourmet Food%') THEN 'TRUE'
+		Else 'FALSE' END AS gourmet_food
+FROM da_ingredients.ingredients
+LIMIT 1000
